@@ -6,7 +6,7 @@ const subTabs = ['Agent & Safety Rails', 'WhatsApp Vendor Studio', 'Community & 
 
 export default function DashboardNav({ activeRole, setActiveRole, activeTab, setActiveTab, onReset, onLogout }) {
   return (
-    <div style={{ background: '#fff', borderBottom: '1px solid var(--border)', position: 'sticky', top: 0, zIndex: 100 }}>
+    <div style={{ background: '#fff', borderBottom: '2px solid var(--border)', position: 'sticky', top: 0, zIndex: 100 }}>
       {/* Top bar */}
       <div style={{
         display: 'flex',
@@ -20,7 +20,7 @@ export default function DashboardNav({ activeRole, setActiveRole, activeTab, set
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-secondary)' }}>+ Panvel</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#4caf50' }} />
+              <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--green-accent)' }} />
               <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>Live Sync</span>
             </div>
           </div>
@@ -37,10 +37,11 @@ export default function DashboardNav({ activeRole, setActiveRole, activeTab, set
                 borderRadius: 50,
                 fontSize: 13,
                 fontWeight: 500,
-                border: '1.5px solid',
+                border: '2px solid',
                 borderColor: activeRole === r ? 'var(--green-dark)' : 'transparent',
                 background: activeRole === r ? 'var(--green-dark)' : 'transparent',
                 color: activeRole === r ? '#fff' : 'var(--text-secondary)',
+                fontWeight: activeRole === r ? 700 : 500,
                 cursor: 'pointer',
                 transition: 'all 0.15s',
               }}
@@ -118,10 +119,11 @@ export default function DashboardNav({ activeRole, setActiveRole, activeTab, set
               borderRadius: 50,
               fontSize: 13,
               fontWeight: 500,
-              border: '1.5px solid',
+              border: '2px solid',
               borderColor: activeTab === tab ? 'var(--green-dark)' : 'var(--border)',
               background: activeTab === tab ? 'var(--green-dark)' : 'transparent',
               color: activeTab === tab ? '#fff' : 'var(--text-secondary)',
+              fontWeight: activeTab === tab ? 700 : 500,
               cursor: 'pointer',
               transition: 'all 0.15s',
             }}

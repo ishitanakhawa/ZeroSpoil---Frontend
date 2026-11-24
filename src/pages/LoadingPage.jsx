@@ -38,7 +38,7 @@ export default function LoadingPage({ onComplete }) {
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#f0f0ea',
+      background: 'var(--bg)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -46,28 +46,30 @@ export default function LoadingPage({ onComplete }) {
     }}>
       <div style={{
         background: '#fff',
-        borderRadius: 20,
+        borderRadius: 22,
         padding: '48px 44px',
         width: '100%',
         maxWidth: 500,
-        boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
+        boxShadow: '0 8px 32px rgba(15,45,26,0.13)',
+        border: '1.5px solid var(--border)',
         textAlign: 'center',
       }}>
         {/* Icon */}
         <div style={{
-          width: 64,
-          height: 64,
+          width: 68,
+          height: 68,
           borderRadius: '50%',
-          border: '2px solid #b8e0be',
-          background: '#f0fbf2',
+          border: '2.5px solid var(--green-pill)',
+          background: 'var(--green-light)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           margin: '0 auto 28px',
         }}>
-          <svg width={28} height={28} viewBox="0 0 24 24" fill="none">
-            <path d="M12 3C9 3 6.5 5.5 6.5 8.5C6.5 11.5 9 14 12 14C15 14 17.5 11.5 17.5 8.5C17.5 5.5 15 3 12 3Z" fill="#4caf50" />
-            <path d="M12 14C12 14 8 16 8 20H16C16 16 12 14 12 14Z" fill="#a5d6a7" />
+          <svg width={30} height={30} viewBox="0 0 20 20" fill="none">
+            <path d="M10 13 C10 13 4 12 4 7 C4 7 8 7 10 10" fill="#25a244" />
+            <path d="M10 10 C10 10 16 9 16 4 C16 4 11 4 10 8" fill="#86efac" />
+            <path d="M10 17 Q10 14 10 10 Q10 8 10 5" stroke="#0f2d1a" strokeWidth="1.6" strokeLinecap="round" fill="none" />
           </svg>
         </div>
 
@@ -90,16 +92,16 @@ export default function LoadingPage({ onComplete }) {
             <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-secondary)' }}>{pct}%</span>
           </div>
           <div style={{
-            height: 8,
-            background: '#e8e8e0',
-            borderRadius: 4,
+            height: 9,
+            background: 'var(--green-light)',
+            borderRadius: 5,
             overflow: 'hidden',
           }}>
             <div style={{
               height: '100%',
               width: `${pct}%`,
-              background: '#4caf50',
-              borderRadius: 4,
+              background: 'var(--green-accent)',
+              borderRadius: 5,
               transition: 'width 0.1s linear',
             }} />
           </div>
@@ -122,7 +124,7 @@ export default function LoadingPage({ onComplete }) {
                 transition: 'all 0.3s',
               }}
             >
-              <span style={{ color: i <= activeStep ? '#4caf50' : '#ccc', fontSize: 14 }}>✓</span>
+              <span style={{ color: i <= activeStep ? 'var(--green-accent)' : '#bbb', fontSize: 14, fontWeight: 700 }}>✓</span>
               {step}
             </div>
           ))}

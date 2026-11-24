@@ -181,8 +181,8 @@ export default function ShopOwnerView() {
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 12 }}>Supermarket POS Sync</h2>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
-            <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#4caf50' }} />
-            <span style={{ fontSize: 12, fontWeight: 600, color: '#4caf50' }}>LAN POS connected</span>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--green-accent)' }} />
+            <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--green-accent)' }}>LAN POS connected</span>
             <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>FreshMart inventory · Panvel</span>
           </div>
 

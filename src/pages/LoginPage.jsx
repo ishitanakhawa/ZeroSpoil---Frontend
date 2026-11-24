@@ -21,7 +21,7 @@ export default function LoginPage({ onLogin }) {
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#f0f0ea',
+      background: 'var(--bg)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -29,31 +29,18 @@ export default function LoginPage({ onLogin }) {
     }}>
       <div style={{
         background: '#fff',
-        borderRadius: 20,
-        padding: '40px 36px',
+        borderRadius: 22,
+        padding: '44px 40px',
         width: '100%',
         maxWidth: 440,
-        boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
+        boxShadow: '0 8px 32px rgba(15,45,26,0.13)',
+        border: '1.5px solid var(--border)',
       }}>
         {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-          <div style={{
-            width: 36,
-            height: 36,
-            background: 'var(--green-dark)',
-            borderRadius: 10,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-            <svg width={20} height={20} viewBox="0 0 24 24" fill="none">
-              <path d="M12 3C9 3 6.5 5.5 6.5 8.5C6.5 11.5 9 14 12 14C15 14 17.5 11.5 17.5 8.5C17.5 5.5 15 3 12 3Z" fill="#6fcf7a" />
-              <path d="M12 14C12 14 8 16 8 20H16C16 16 12 14 12 14Z" fill="#a8e6b0" />
-            </svg>
-          </div>
-          <span style={{ fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em' }}>ZeroSpoil</span>
+        <div style={{ marginBottom: 6 }}>
+          <Logo size={34} />
         </div>
-        <p style={{ color: 'var(--text-secondary)', fontSize: 14, marginBottom: 28 }}>
+        <p style={{ color: 'var(--text-secondary)', fontSize: 14, fontWeight: 500, marginBottom: 32 }}>
           Save food. Share locally.
         </p>
 
@@ -64,14 +51,14 @@ export default function LoginPage({ onLogin }) {
               key={role}
               onClick={() => setSelectedRole(role)}
               style={{
-                padding: '7px 16px',
+                padding: '8px 17px',
                 borderRadius: 24,
                 fontSize: 13,
-                fontWeight: 500,
-                border: '1.5px solid',
+                fontWeight: 600,
+                border: '2px solid',
                 borderColor: selectedRole === role ? 'var(--green-dark)' : 'var(--border)',
                 background: selectedRole === role ? 'var(--green-dark)' : '#fff',
-                color: selectedRole === role ? '#fff' : 'var(--text-primary)',
+                color: selectedRole === role ? '#fff' : 'var(--text-secondary)',
                 cursor: 'pointer',
                 transition: 'all 0.15s',
               }}
@@ -82,7 +69,7 @@ export default function LoginPage({ onLogin }) {
         </div>
 
         {/* Input */}
-        <label style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', display: 'block', marginBottom: 6 }}>
+        <label style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-secondary)', display: 'block', marginBottom: 7 }}>
           Email / Phone
         </label>
         <input
@@ -91,14 +78,17 @@ export default function LoginPage({ onLogin }) {
           onChange={(e) => setCredential(e.target.value)}
           style={{
             width: '100%',
-            padding: '11px 14px',
-            border: '1.5px solid var(--border)',
-            borderRadius: 10,
+            padding: '12px 14px',
+            border: '2px solid var(--border)',
+            borderRadius: 11,
             fontSize: 14,
-            marginBottom: 16,
+            marginBottom: 18,
             color: 'var(--text-primary)',
             background: '#fff',
+            transition: 'border-color 0.15s',
           }}
+          onFocus={e => e.target.style.borderColor = 'var(--green-accent)'}
+          onBlur={e => e.target.style.borderColor = 'var(--border)'}
           placeholder=""
         />
 
@@ -107,19 +97,31 @@ export default function LoginPage({ onLogin }) {
           onClick={() => handleLogin()}
           style={{
             width: '100%',
-            padding: '13px',
+            padding: '14px',
             background: 'var(--green-dark)',
             color: '#fff',
             borderRadius: 50,
             fontSize: 15,
-            fontWeight: 600,
+            fontWeight: 700,
             marginBottom: 20,
             border: 'none',
             cursor: 'pointer',
+            letterSpacing: '0.01em',
+            boxShadow: '0 4px 14px rgba(15,45,26,0.3)',
+            transition: 'opacity 0.15s',
           }}
+          onMouseEnter={e => e.target.style.opacity = '0.88'}
+          onMouseLeave={e => e.target.style.opacity = '1'}
         >
           Log In
         </button>
+
+        {/* Divider */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+          <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
+          <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-muted)', letterSpacing: '0.08em' }}>QUICK DEMO</span>
+          <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
+        </div>
 
         {/* Demo shortcuts */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
@@ -128,15 +130,18 @@ export default function LoginPage({ onLogin }) {
               key={d.label}
               onClick={() => handleLogin(d.role)}
               style={{
-                padding: '10px',
+                padding: '11px',
                 background: 'var(--green-light)',
-                border: 'none',
+                border: '1.5px solid var(--green-pill)',
                 borderRadius: 10,
                 fontSize: 13,
-                fontWeight: 500,
+                fontWeight: 600,
                 color: 'var(--green-dark)',
                 cursor: 'pointer',
+                transition: 'background 0.15s',
               }}
+              onMouseEnter={e => e.currentTarget.style.background = 'var(--green-pill)'}
+              onMouseLeave={e => e.currentTarget.style.background = 'var(--green-light)'}
             >
               {d.label}
             </button>
